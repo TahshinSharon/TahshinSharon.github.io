@@ -19,7 +19,7 @@
 
 
 
-<title>Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites - Tahshin Sharon</title>
+<title>  Tahshin Sharon</title>
 
 
 
@@ -66,7 +66,7 @@
 <!-- Open Graph protocol data (https://ogp.me/), used by social media -->
 <meta property="og:locale" content="en-US">
 <meta property="og:site_name" content="Tahshin Sharon"> 
-<meta property="og:title" content="Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites">
+<meta property="og:title" content="Tahshin Sharon">
 
 
 
@@ -137,22 +137,12 @@
           
             
             <li class="masthead__menu-item ">
-              <a href="https://TahshinSharon.github.io/portfolio/">Portfolio</a>
-            </li>
-          
-            
-            <li class="masthead__menu-item ">
               <a href="https://TahshinSharon.github.io/year-archive/">Blog Posts</a>
             </li>
           
             
             <li class="masthead__menu-item ">
-              <a href="https://TahshinSharon.github.io/cv/">CV</a>
-            </li>
-          
-            
-            <li class="masthead__menu-item ">
-              <a href="https://TahshinSharon.github.io/markdown/">Guide</a>
+              <a href="https://TahshinSharon.github.io/cv/">Resume</a>
             </li>
           
           <li id="theme-toggle" class="masthead__menu-item persist tail">
@@ -285,7 +275,7 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites">
+    <meta itemprop="headline" content="">
     
     
     
@@ -293,7 +283,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites
+          <h1 class="page__title" itemprop="headline">
 </h1>
           
         
@@ -303,65 +293,496 @@
       
 
       <section class="page__content" itemprop="text">
-        <p>This is the front page of a website that is powered by the <a href="https://github.com/academicpages/academicpages.github.io">Academic Pages template</a> and hosted on GitHub pages. <a href="https://pages.github.com">GitHub pages</a> is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the repository. This template was forked from the <a href="https://mmistakes.github.io/minimal-mistakes/">Minimal Mistakes Jekyll Theme</a> created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. Incidentally, these same features make it a great template for anyone that needs to show off a professional template!</p>
+        <style>
+  .hero-card {
+    background: linear-gradient(135deg, #2c3e50 0%, #4a6480 100%);
+    color: #fff;
+    padding: 2rem 2rem 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(44,62,80,0.25);
+    margin-bottom: 1.75rem;
+  }
+  .hero-card h1 {
+    margin: 0 0 .35rem 0;
+    color: #fff;
+    border: none;
+    font-size: 2.1rem;
+    line-height: 1.15;
+  }
+  .hero-card .tagline {
+    font-size: 1.05rem;
+    opacity: 0.95;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  .hero-card .intro { opacity: 0.92; margin-bottom: 1.25rem; }
+  .stat-row { display:flex; flex-wrap:wrap; gap:.75rem; }
+  .stat-pill {
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(6px);
+    padding: .45rem .85rem;
+    border-radius: 999px;
+    font-size: .9rem;
+    font-weight: 600;
+  }
 
-<p>You can fork <a href="https://github.com/academicpages/academicpages.github.io">this template</a> right now, modify the configuration and Markdown files, add your own PDFs and other content, and have your own site for free, with no ads!</p>
+  .section-title {
+    display:flex;
+    align-items:center;
+    gap:.6rem;
+    border-bottom: 2px solid #e1e3e8;
+    padding-bottom:.5rem;
+    margin: 2.25rem 0 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1c2330;
+  }
+  .section-title .icon-bubble {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width: 2rem; height: 2rem;
+    border-radius: 8px;
+    background: #e8eef5;
+    color: #2c3e50;
+    font-size: 1rem;
+  }
 
-<h1 id="a-data-driven-personal-website">A data-driven personal website</h1>
-<p>Like many other Jekyll-based GitHub Pages templates, Academic Pages makes you separate the website’s content from its form. The content &amp; metadata of your website are in structured Markdown files, while various other files constitute the theme, specifying how to transform that content &amp; metadata into HTML pages. You keep these various Markdown (.md), YAML (.yml), HTML, and CSS files in a public GitHub repository. Each time you commit and push an update to the repository, the <a href="https://pages.github.com/">GitHub pages</a> service creates static HTML pages based on these files, which are hosted on GitHub’s servers free of charge.</p>
+  .card {
+    background: #eef0f3;
+    border: 1px solid #dadde3;
+    border-left: 4px solid #4a6480;
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    color: #2d313a;
+  }
+  .card h3 {
+    margin: 0 0 .25rem 0;
+    font-size: 1.15rem;
+    color: #1c2330;
+    font-weight: 700;
+  }
+  .card p, .card li, .card ul { color: #2d313a; }
+  .card strong { color: #1c2330; }
+  .card .meta {
+    color: #5a5f6a;
+    font-size: .88rem;
+    margin-bottom: .6rem;
+    font-style: italic;
+  }
+  .card.alt    { background:#eef0f3; border-left-color:#7c8290; }
+  .card.green  { background:#eef0f3; border-left-color:#7c8290; }
+  .card.orange { background:#eef0f3; border-left-color:#7c8290; }
 
-<p>Many of the features of dynamic content management systems (like Wordpress) can be achieved in this fashion, using a fraction of the computational resources and with far less vulnerability to hacking and DDoSing. You can also modify the theme to your heart’s content without touching the content of your site. If you get to a point where you’ve broken something in Jekyll/HTML/CSS beyond repair, your Markdown files describing your talks, publications, etc. are safe. You can rollback the changes or even delete the repository and start over - just be sure to save the Markdown files! You can also write scripts that process the structured data on the site, such as <a href="https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb">this one</a> that analyzes metadata in pages about talks to display <a href="https://academicpages.github.io/talkmap.html">a map of every location you’ve given a talk</a>.</p>
+  .tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.4rem;}
+  .tag {
+    background: #eef2f7;
+    color: #2c3e50;
+    padding: .25rem .65rem;
+    border-radius: 999px;
+    font-size: .82rem;
+    font-weight: 600;
+    border: 1px solid #d8e0ea;
+  }
+  .tag.alt    { background:#fff7e6; color:#8a5a00; border-color:#f3deb1;}
+  .tag.green  { background:#e9f3ee; color:#2e6c54; border-color:#cfe2d6;}
+  .tag.orange { background:#fdeed8; color:#8a5a00; border-color:#f3deb1;}
+  .tag.gray   { background:#f3f3f5; color:#444;    border-color:#e2e2e6;}
 
-<p>For those users that need more advanced functionality, the template also supports the following popular tools:</p>
-<ul>
-  <li><a href="https://www.mathjax.org/">MathJax</a> for mathematical equations</li>
-  <li><a href="https://mermaid.js.org/">Mermaid</a> for diagraming</li>
-  <li><a href="https://plotly.com/javascript/">Plotly</a> for plotting</li>
-</ul>
+  .skill-group { margin-bottom: 1rem; }
+  .skill-group .label {
+    font-weight: 700;
+    color: #444;
+    margin-bottom: .35rem;
+    display:block;
+  }
 
-<h1 id="getting-started">Getting started</h1>
-<ol>
-  <li>Register a GitHub account if you don’t have one and confirm your e-mail (required!)</li>
-  <li>Fork <a href="https://github.com/academicpages/academicpages.github.io">this template</a> by clicking the “Use this template” button in the top right.</li>
-  <li>Go to the repository’s settings (rightmost item in the tabs that start with “Code”, should be below “Unwatch”). Rename the repository “[your GitHub username].github.io”, which will also be your website’s URL.</li>
-  <li>Set site-wide configuration and create content &amp; metadata (see below – also see <a href="https://archive.is/3TPas">this set of diffs</a> showing what files were changed to set up <a href="https://getorg-testacct.github.io">an example site</a> for a user with the username “getorg-testacct”)</li>
-  <li>Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.</li>
-  <li>Check status by going to the repository settings, in the “GitHub pages” section</li>
-</ol>
+  .achievement-list { list-style:none; padding:0; margin:0; }
+  .achievement-list li {
+    display:flex; gap:.75rem; align-items:flex-start;
+    padding:.65rem .75rem;
+    border-radius:8px;
+    background:#eef0f3;
+    margin-bottom:.5rem;
+    border:1px solid #dadde3;
+    color:#2d313a;
+  }
+  .achievement-list li strong { color:#1c2330; }
+  .achievement-list .trophy { color:#c98a1c; font-size:1.1rem; padding-top:.1rem; }
 
-<h2 id="site-wide-configuration">Site-wide configuration</h2>
-<p>The main configuration file for the site is in the base directory in <a href="https://github.com/academicpages/academicpages.github.io/blob/master/_config.yml">_config.yml</a>, which defines the content in the sidebars and other site-wide features. You will need to replace the default variables with ones about yourself and your site’s github repository. The configuration file for the top menu is in <a href="https://github.com/academicpages/academicpages.github.io/blob/master/_data/navigation.yml">_data/navigation.yml</a>. For example, if you don’t have a portfolio or blog posts, you can remove those items from that navigation.yml file to remove them from the header.</p>
+  .contact-row {
+    display:flex;
+    flex-wrap:nowrap;
+    gap:.5rem;
+    margin-top:.75rem;
+    overflow-x:auto;
+    padding-bottom:.25rem;
+  }
+  .contact-row a {
+    display:inline-flex; align-items:center; gap:.35rem;
+    padding:.45rem .8rem;
+    border-radius:999px;
+    background: linear-gradient(135deg,#2c3e50,#4a6480);
+    color:#fff !important;
+    font-weight:600;
+    font-size:.88rem;
+    white-space:nowrap;
+    text-decoration:none !important;
+    box-shadow: 0 2px 6px rgba(44,62,80,0.30);
+    transition: transform .15s ease, box-shadow .15s ease;
+    flex-shrink:0;
+  }
+  .contact-row a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245,176,66,0.35);
+    background: linear-gradient(135deg,#33485e,#536f8d);
+  }
+  .contact-row a i { color:#f5b042; }
 
-<h2 id="create-content--metadata">Create content &amp; metadata</h2>
-<p>For site content, there is one Markdown file for each type of content, which are stored in directories like _publications, _talks, _posts, _teaching, or _pages. For example, each talk is a Markdown file in the <a href="https://github.com/academicpages/academicpages.github.io/tree/master/_talks">_talks directory</a>. At the top of each Markdown file is structured data in YAML about the talk, which the theme will parse to do lots of cool stuff. The same structured data about a talk is used to generate the list of talks on the <a href="https://academicpages.github.io/talks">Talks page</a>, each <a href="https://academicpages.github.io/talks/2012-03-01-talk-1">individual page</a> for specific talks, the talks section for the <a href="https://academicpages.github.io/cv">CV page</a>, and the <a href="https://academicpages.github.io/talkmap.html">map of places you’ve given a talk</a> (if you run this <a href="https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.py">python file</a> or <a href="https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb">Jupyter notebook</a>, which creates the HTML for the map based on the contents of the _talks directory).</p>
+  .impact-box {
+    background:#eef0f3;
+    border-left:4px solid #38b89c;
+    padding:.75rem 1rem;
+    border-radius:6px;
+    margin-top:.6rem;
+    color:#2d313a;
+  }
+  .impact-box strong { color:#1f8c6e; }
 
-<p><strong>Markdown generator</strong></p>
+  /* ---------- Dark mode overrides (theme uses html[data-theme="dark"]) ---------- */
+  html[data-theme="dark"] .section-title {
+    color: #e6e8ec;
+    border-bottom-color: #2f343c;
+  }
+  html[data-theme="dark"] .section-title .icon-bubble {
+    background: #1e2a36;
+    color: #ffd47a;
+  }
 
-<p>The repository includes <a href="https://github.com/academicpages/academicpages.github.io/tree/master/markdown_generator">a set of Jupyter notebooks</a> that converts a CSV containing structured data about talks or presentations into individual Markdown files that will be properly formatted for the Academic Pages template. The sample CSVs in that directory are the ones I used to create my own personal website at stuartgeiger.com. My usual workflow is that I keep a spreadsheet of my publications and talks, then run the code in these notebooks to generate the Markdown files, then commit and push them to the GitHub repository.</p>
+  html[data-theme="dark"] .card {
+    background: #1f232b;
+    border-color: #2c313a;
+    border-left-color: #4a6480;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    color: #d8dbe2;
+  }
+  html[data-theme="dark"] .card h3 { color: #f1f3f7; }
+  html[data-theme="dark"] .card .meta { color: #9aa0aa; }
+  html[data-theme="dark"] .card.alt,
+  html[data-theme="dark"] .card.green,
+  html[data-theme="dark"] .card.orange {
+    background: #232832;
+    border-left-color: #5b7090;
+  }
+  html[data-theme="dark"] .card ul,
+  html[data-theme="dark"] .card p,
+  html[data-theme="dark"] .card li { color: #c8ccd4; }
+  html[data-theme="dark"] .card strong { color: #f1f3f7; }
 
-<h2 id="how-to-edit-your-sites-github-repository">How to edit your site’s GitHub repository</h2>
-<p>Many people use a git client to create files on their local computer and then push them to GitHub’s servers. If you are not familiar with git, you can directly edit these configuration and Markdown files directly in the github.com interface. Navigate to a file (like <a href="https://github.com/academicpages/academicpages.github.io/blob/master/_talks/2012-03-01-talk-1.md">this one</a> and click the pencil icon in the top right of the content preview (to the right of the “Raw | Blame | History” buttons). You can delete a file by clicking the trashcan icon to the right of the pencil icon. You can also create new files or upload files by navigating to a directory and clicking the “Create new file” or “Upload files” buttons.</p>
+  html[data-theme="dark"] .tag {
+    background: #243040;
+    color: #c8d6ea;
+    border-color: #2f3d52;
+  }
+  html[data-theme="dark"] .tag.alt {
+    background: #3a2f1c;
+    color: #ffd17a;
+    border-color: #5a4525;
+  }
+  html[data-theme="dark"] .tag.green {
+    background: #1f3329;
+    color: #9fdcc1;
+    border-color: #2a4a3a;
+  }
+  html[data-theme="dark"] .tag.orange {
+    background: #3a2f1c;
+    color: #ffd17a;
+    border-color: #5a4525;
+  }
+  html[data-theme="dark"] .tag.gray {
+    background: #2a2d35;
+    color: #c8ccd4;
+    border-color: #3a3d45;
+  }
 
-<p>Example: editing a Markdown file for a talk
-<img src="/images/editing-talk.png" alt="Editing a Markdown file for a talk" /></p>
+  html[data-theme="dark"] .skill-group .label { color: #e6e8ec; }
 
-<h2 id="for-more-info">For more info</h2>
-<p>More info about configuring Academic Pages can be found in <a href="https://academicpages.github.io/markdown/">the guide</a>, the <a href="https://github.com/academicpages/academicpages.github.io/wiki">growing wiki</a>, and you can always <a href="https://github.com/academicpages/academicpages.github.io/discussions">ask a question on GitHub</a>. The <a href="https://mmistakes.github.io/minimal-mistakes/docs/configuration/">guides for the Minimal Mistakes theme</a> (which this theme was forked from) might also be helpful.</p>
+  html[data-theme="dark"] .achievement-list li {
+    background: #1e2127;
+    border-color: #2c313a;
+    color: #d8dbe2;
+  }
+  html[data-theme="dark"] .achievement-list li strong { color: #f1f3f7; }
+  html[data-theme="dark"] .achievement-list .trophy { color: #ffd47a; }
+
+  html[data-theme="dark"] .impact-box {
+    background: #1a2a26;
+    border-left-color: #38b89c;
+    color: #d8dbe2;
+  }
+  html[data-theme="dark"] .impact-box strong { color: #6fd4b6; }
+
+  html[data-theme="dark"] .hero-card {
+    box-shadow: 0 6px 22px rgba(0,0,0,0.45);
+  }
+</style>
+
+<div class="hero-card">
+  <h1>Md. Abu Tahshin</h1>
+  <div class="tagline">Backend Engineer · Golang Developer · Competitive Programmer</div>
+  <div class="intro">
+    Building scalable backend systems, APIs, and educational technology solutions with <strong>Golang</strong>, <strong>GraphQL</strong>, <strong>Redis</strong>, and distributed systems.
+  </div>
+  <div class="stat-row">
+    <span class="stat-pill"><i class="fas fa-code"></i> &nbsp;1000+ Problems Solved</span>
+    <span class="stat-pill"><i class="fas fa-briefcase"></i> &nbsp;Backend Engineer @ Shikho</span>
+    <span class="stat-pill"><i class="fas fa-trophy"></i> &nbsp;ICPC Regional Participant</span>
+    <span class="stat-pill"><i class="fas fa-medal"></i> &nbsp;IEEEXtreme BD Rank 6</span>
+  </div>
+</div>
+
+<div class="section-title">
+  <span class="icon-bubble"><i class="fas fa-briefcase"></i></span>
+  Work Experience
+</div>
+
+<div class="card">
+  <h3>Shikho Technologies Ltd. — Junior Software Engineer (Back-End)</h3>
+  <div class="meta">January 2025 – Present · Dhaka, Bangladesh</div>
+  <p>Building scalable, high-performance backend systems for large-scale educational platforms serving thousands of students across Bangladesh.</p>
+
+  <strong>Key Responsibilities</strong>
+  <ul>
+    <li>Design and develop scalable backend services using <strong>Golang</strong>.</li>
+    <li>Build and maintain APIs using <strong>GraphQL</strong>, <strong>REST</strong>, and <strong>gRPC</strong>.</li>
+    <li>Optimize system performance with <strong>Redis</strong>-based caching strategies.</li>
+    <li>Work with distributed databases including <strong>MongoDB</strong> and <strong>PostgreSQL</strong>.</li>
+    <li>Collaborate cross-functionally with product, frontend, and content teams.</li>
+    <li>Contribute to backend architecture decisions, optimization, and API design.</li>
+  </ul>
+
+  <strong>Major Contributions</strong>
+  <ul>
+    <li><strong>Dynamic QR-Based FutureBook Platform</strong> — Bridged physical textbooks and digital learning with dynamic QR technology.</li>
+    <li><strong>Alor-Shikha</strong> — Backend for online exams and competitive quizzes (weekly exams, leaderboards, Redis-powered performance).</li>
+  </ul>
+</div>
+
+<div class="section-title">
+  <span class="icon-bubble"><i class="fas fa-rocket"></i></span>
+  Featured Projects
+</div>
+
+<div class="card">
+  <h3><i class="fas fa-qrcode" style="color:#667eea"></i> &nbsp;Dynamic QR-Based FutureBook</h3>
+  <div class="meta">A next-generation educational platform connecting physical books with dynamic digital content.</div>
+
+  <strong>Highlights</strong>
+  <ul>
+    <li>Scalable backend architecture for multi-year academic programs.</li>
+    <li>Dynamic QR generation, management, and content delivery.</li>
+    <li>Entitlement and access-control system.</li>
+    <li>Quiz APIs, learning analytics, and CMS-controlled content.</li>
+    <li>Designed for long-term academic scalability.</li>
+  </ul>
+
+  <div class="impact-box">
+    <strong>Impact:</strong> Seamlessly connected offline &amp; online learning, improved content accessibility, enabled real-time updates without reprinting books.
+  </div>
+
+  <div class="tags">
+    <span class="tag">Golang</span>
+    <span class="tag">Redis</span>
+    <span class="tag">MongoDB</span>
+    <span class="tag">GraphQL</span>
+    <span class="tag">REST API</span>
+  </div>
+</div>
+
+<div class="card alt">
+  <h3><i class="fas fa-graduation-cap" style="color:#f093fb"></i> &nbsp;Alor-Shikha — Online Educational Quiz Platform</h3>
+  <div class="meta">A competitive educational exam and quiz platform for students.</div>
+
+  <strong>Highlights</strong>
+  <ul>
+    <li>Weekly exam management system.</li>
+    <li>Real-time leaderboard &amp; ranking APIs.</li>
+    <li>Scoring and progress tracking systems.</li>
+    <li>Redis-powered caching for high-performance ranking.</li>
+    <li>Significantly reduced DB load and response times.</li>
+  </ul>
+
+  <div class="tags">
+    <span class="tag alt">Golang</span>
+    <span class="tag alt">Redis</span>
+    <span class="tag alt">MongoDB</span>
+    <span class="tag alt">GraphQL</span>
+  </div>
+</div>
+
+<div class="section-title">
+  <span class="icon-bubble"><i class="fas fa-tools"></i></span>
+  Skills
+</div>
+
+<div class="skill-group">
+  <span class="label">Programming Languages</span>
+  <div class="tags">
+    <span class="tag">Golang</span>
+    <span class="tag">Python</span>
+    <span class="tag">C++</span>
+  </div>
+</div>
+
+<div class="skill-group">
+  <span class="label">Backend Development</span>
+  <div class="tags">
+    <span class="tag green">REST APIs</span>
+    <span class="tag green">GraphQL</span>
+    <span class="tag green">gRPC</span>
+    <span class="tag green">Microservices</span>
+    <span class="tag green">API Design &amp; Optimization</span>
+  </div>
+</div>
+
+<div class="skill-group">
+  <span class="label">Databases &amp; Caching</span>
+  <div class="tags">
+    <span class="tag alt">MongoDB</span>
+    <span class="tag alt">PostgreSQL</span>
+    <span class="tag alt">Redis</span>
+    <span class="tag alt">Elasticsearch</span>
+  </div>
+</div>
+
+<div class="skill-group">
+  <span class="label">Tools &amp; Technologies</span>
+  <div class="tags">
+    <span class="tag gray">Git</span>
+    <span class="tag gray">GitHub</span>
+    <span class="tag gray">GitLab</span>
+    <span class="tag gray">Postman</span>
+    <span class="tag gray">Grafana</span>
+  </div>
+</div>
+
+<div class="skill-group">
+  <span class="label">Additional</span>
+  <div class="tags">
+    <span class="tag orange">React</span>
+    <span class="tag orange">FastAPI</span>
+    <span class="tag orange">System Design</span>
+    <span class="tag orange">Caching Strategies</span>
+    <span class="tag orange">Performance Optimization</span>
+  </div>
+</div>
+
+<div class="section-title">
+  <span class="icon-bubble"><i class="fas fa-trophy"></i></span>
+  Achievements
+</div>
+
+<div class="card green">
+  <h3><i class="fas fa-laptop-code" style="color:#38b89c"></i> &nbsp;Competitive Programming</h3>
+  <ul>
+    <li><strong>1000+ programming problems</strong> solved across multiple online judges.</li>
+    <li>Active on <strong>Codeforces</strong> and <strong>LeetCode</strong>.</li>
+    <li>Strong foundation in algorithms, data structures, and problem solving.</li>
+  </ul>
+</div>
+
+<div class="card orange">
+  <h3><i class="fas fa-medal" style="color:#ff8a4c"></i> &nbsp;Programming Contests</h3>
+  <ul class="achievement-list">
+    <li>
+      <span class="trophy"><i class="fas fa-trophy"></i></span>
+      <div><strong>IEEEXtreme 17.0</strong> — Ranked <strong>6th in Bangladesh</strong>, global rank <strong>1162 / 7091 teams</strong> · <em>Team ARSfire</em></div>
+    </li>
+    <li>
+      <span class="trophy"><i class="fas fa-medal"></i></span>
+      <div><strong>ICPC Regional 2023</strong> — Participant · <em>Team JnuLazyPenguin</em></div>
+    </li>
+    <li>
+      <span class="trophy"><i class="fas fa-award"></i></span>
+      <div><strong>JNU Intra-University Programming Contest 2023</strong> — <strong>1st Runner-Up</strong> (2nd of 50 participants)</div>
+    </li>
+    <li>
+      <span class="trophy"><i class="fas fa-star"></i></span>
+      <div><strong>UITS IUPC 2023</strong> — 26th position · <em>Team JnuLazyPenguin</em></div>
+    </li>
+  </ul>
+</div>
+
+<div class="section-title">
+  <span class="icon-bubble"><i class="fas fa-users"></i></span>
+  Leadership &amp; Mentorship
+</div>
+
+<div class="card alt">
+  <h3>Lead Organizer — JNU IUPC</h3>
+  <div class="meta">Jagannath University</div>
+  <ul>
+    <li>Led the organization of a university-level programming contest.</li>
+    <li>Coordinated volunteers and distributed operational tasks.</li>
+    <li>Communicated between faculty, alumni, and students.</li>
+    <li>Contributed as a <strong>problem setter</strong>.</li>
+  </ul>
+  <div class="tags">
+    <span class="tag alt">Team Coordination</span>
+    <span class="tag alt">Event Management</span>
+    <span class="tag alt">Problem Setting</span>
+    <span class="tag alt">Community Building</span>
+  </div>
+</div>
+
+<div class="section-title">
+  <span class="icon-bubble"><i class="fas fa-graduation-cap"></i></span>
+  Education
+</div>
+
+<div class="card">
+  <h3>Jagannath University</h3>
+  <div class="meta">Bachelor's Degree · Ongoing</div>
+</div>
+
+<div class="card green">
+  <h3><i class="fas fa-flask" style="color:#38b89c"></i> &nbsp;Research — Predicting Autism Spectrum Disorder Using Machine Learning</h3>
+  <div class="meta">February 2024 – August 2024</div>
+  <p>Conducted research focused on early autism detection in young children using machine learning models.</p>
+  <div class="impact-box">
+    <strong>Outcomes:</strong> Achieved <strong>97% prediction accuracy</strong> — a <strong>1% improvement</strong> over previous models. Worked on data analysis, model training, and evaluation.
+  </div>
+  <div class="tags">
+    <span class="tag green">Machine Learning</span>
+    <span class="tag green">Predictive Modeling</span>
+    <span class="tag green">Data Processing</span>
+    <span class="tag green">Research Analysis</span>
+  </div>
+</div>
+
+<div class="section-title">
+  <span class="icon-bubble"><i class="fas fa-paper-plane"></i></span>
+  Contact &amp; Links
+</div>
+
+<p>Feel free to reach out — I'm always open to interesting backend, distributed systems, and ed-tech conversations.</p>
+
+<div class="contact-row">
+  <a href="mailto:tahshinsharon@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+  <a href="https://github.com/TahshinSharon" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+  <a href="https://gitlab.com/abutahshin" target="_blank"><i class="fab fa-gitlab"></i> GitLab</a>
+  <a href="https://www.linkedin.com/in/tahshin-sharon-a1b48a17a" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+  <a href="https://leetcode.com/Tahshin" target="_blank"><i class="fas fa-code"></i> LeetCode</a>
+  <a href="https://codeforces.com/profile/A.T_" target="_blank"><i class="fas fa-trophy"></i> Codeforces</a>
+</div>
 
 
         
 
         
       </section>
-
-      <footer class="page__meta">
-        
-        
-
-
-
-
-      </footer>
 
       
 
@@ -381,8 +802,6 @@
     <div class="page__footer">
       <footer>
         <!-- start custom footer snippets -->
-
-<a href="/sitemap/">Sitemap</a>
 
 <!-- Support for MatJax -->
 <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -409,16 +828,13 @@
       <li><a href="https://github.com/TahshinSharon"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
     
     
-    
-    <li><a href="https://TahshinSharon.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
-    
   </ul>
 </div>
 
 
 <div class="page__footer-copyright">
-  &copy; 2026 Tahshin Sharon, Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated 2026-04-23
+  &copy; 2026 Tahshin Sharon<br />
+  Site last updated 2026-05-15
 </div>
 
       </footer>

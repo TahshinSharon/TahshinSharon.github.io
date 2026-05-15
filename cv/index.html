@@ -19,7 +19,7 @@
 
 
 
-<title>CV - Tahshin Sharon</title>
+<title>Resume - Tahshin Sharon</title>
 
 
 
@@ -66,7 +66,7 @@
 <!-- Open Graph protocol data (https://ogp.me/), used by social media -->
 <meta property="og:locale" content="en-US">
 <meta property="og:site_name" content="Tahshin Sharon"> 
-<meta property="og:title" content="CV">
+<meta property="og:title" content="Resume">
 
 
 
@@ -137,22 +137,12 @@
           
             
             <li class="masthead__menu-item ">
-              <a href="https://TahshinSharon.github.io/portfolio/">Portfolio</a>
-            </li>
-          
-            
-            <li class="masthead__menu-item ">
               <a href="https://TahshinSharon.github.io/year-archive/">Blog Posts</a>
             </li>
           
             
             <li class="masthead__menu-item selected">
-              <a href="https://TahshinSharon.github.io/cv/">CV</a>
-            </li>
-          
-            
-            <li class="masthead__menu-item ">
-              <a href="https://TahshinSharon.github.io/markdown/">Guide</a>
+              <a href="https://TahshinSharon.github.io/cv/">Resume</a>
             </li>
           
           <li id="theme-toggle" class="masthead__menu-item persist tail">
@@ -284,324 +274,166 @@
 
   <div class="archive">
     
-      <h1 class="page__title">CV</h1>
+      <h1 class="page__title">Resume</h1>
     
     
-<h1 id="education">Education</h1>
-<ul>
-  <li>Ph.D in Version Control Theory, GitHub University, 2018 (expected)</li>
-  <li>M.S. in Jekyll, GitHub University, 2014</li>
-  <li>B.S. in GitHub, GitHub University, 2012</li>
-</ul>
+<style>
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .6rem 1.2rem;
+    background: linear-gradient(135deg, #2c3e50, #4a6480);
+    color: #fff !important;
+    text-decoration: none !important;
+    border-radius: 999px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.30);
+    transition: transform .15s ease, box-shadow .15s ease;
+    margin-bottom: 1.5rem;
+  }
+  .download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(245,176,66,0.35);
+    background: linear-gradient(135deg, #33485e, #536f8d);
+  }
+  .download-btn i { color: #f5b042; }
 
-<h1 id="work-experience">Work experience</h1>
-<ul>
-  <li>Spring 2024: Academic Pages Collaborator
-    <ul>
-      <li>GitHub University</li>
-      <li>Duties includes: Updates and improvements to template</li>
-      <li>Supervisor: The Users</li>
-    </ul>
-  </li>
-  <li>Fall 2015: Research Assistant
-    <ul>
-      <li>GitHub University</li>
-      <li>Duties included: Merging pull requests</li>
-      <li>Supervisor: Professor Hub</li>
-    </ul>
-  </li>
-  <li>Summer 2015: Research Assistant
-    <ul>
-      <li>GitHub University</li>
-      <li>Duties included: Tagging issues</li>
-      <li>Supervisor: Professor Git</li>
-    </ul>
-  </li>
-</ul>
+  .resume-section {
+    background: #eef0f3;
+    border: 1px solid #dadde3;
+    border-left: 4px solid #4a6480;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin: .75rem 0 1rem;
+    color: #2d313a;
+  }
+  .resume-section h3 {
+    margin: 0 0 .15rem;
+    font-size: 1.1rem;
+    color: #1c2330;
+  }
+  .resume-section .meta {
+    color: #5a5f6a;
+    font-size: .88rem;
+    font-style: italic;
+    margin-bottom: .5rem;
+  }
+  .resume-section ul { margin: .25rem 0 0; padding-left: 1.2rem; }
+  .resume-section li { margin-bottom: .15rem; color: #2d313a; }
+  .resume-section strong { color: #1c2330; }
+  .skill-line { margin: .25rem 0; color: #2d313a; }
+  .skill-line strong { display:inline-block; min-width: 170px; color:#1c2330; }
+
+  html[data-theme="dark"] .resume-section {
+    background: #1f232b;
+    border-color: #2c313a;
+    border-left-color: #4a6480;
+    color: #d8dbe2;
+  }
+  html[data-theme="dark"] .resume-section h3,
+  html[data-theme="dark"] .resume-section strong,
+  html[data-theme="dark"] .skill-line strong { color: #f1f3f7; }
+  html[data-theme="dark"] .resume-section li,
+  html[data-theme="dark"] .skill-line { color: #c8ccd4; }
+  html[data-theme="dark"] .resume-section .meta { color: #9aa0aa; }
+</style>
+
+<p><a class="download-btn" href="https://TahshinSharon.github.io/files/Tahshin_Sharon_Resume.pdf" download="">
+  <i class="fas fa-download"></i> Download Resume (PDF)
+</a></p>
+
+<h1 id="work-experience">Work Experience</h1>
+
+<div class="resume-section">
+  <h3>Shikho Technologies Ltd. — Junior Software Engineer (Back-End)</h3>
+  <div class="meta">January 2025 – Present · Dhaka, Bangladesh</div>
+  <ul>
+    <li>Build scalable backend services in <strong>Golang</strong> for large-scale ed-tech platforms.</li>
+    <li>Design and maintain APIs across <strong>GraphQL</strong>, <strong>REST</strong>, and <strong>gRPC</strong>.</li>
+    <li>Optimize performance with <strong>Redis</strong> caching; work with <strong>MongoDB</strong> and <strong>PostgreSQL</strong>.</li>
+    <li>Contribute to architecture decisions and API design.</li>
+  </ul>
+</div>
+
+<h1 id="featured-projects">Featured Projects</h1>
+
+<div class="resume-section">
+  <h3>Dynamic QR-Based FutureBook</h3>
+  <div class="meta">Backend platform · Golang · Redis · MongoDB · GraphQL · REST</div>
+  <ul>
+    <li>Connects physical textbooks to digital learning via dynamic QR.</li>
+    <li>Built entitlement/access-control, quiz APIs, learning analytics, CMS-driven QR content.</li>
+    <li>Enabled real-time content updates without reprinting books.</li>
+  </ul>
+</div>
+
+<div class="resume-section">
+  <h3>Alor-Shikha — Online Quiz Platform</h3>
+  <div class="meta">Backend platform · Golang · Redis · MongoDB · GraphQL</div>
+  <ul>
+    <li>Weekly exams, real-time leaderboards, scoring &amp; progress tracking.</li>
+    <li>Redis-powered caching significantly reduced DB load and response times.</li>
+  </ul>
+</div>
 
 <h1 id="skills">Skills</h1>
-<ul>
-  <li>Skill 1</li>
-  <li>Skill 2
-    <ul>
-      <li>Sub-skill 2.1</li>
-      <li>Sub-skill 2.2</li>
-      <li>Sub-skill 2.3</li>
-    </ul>
-  </li>
-  <li>Skill 3</li>
-</ul>
 
-<h1 id="publications">Publications</h1>
-<ul>
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    <li>
-    
-    <h3 class="archive__item-title" itemprop="headline">
-      
-        <a href="https://TahshinSharon.github.io/publication/2024-02-17-paper-title-number-4" rel="permalink">Paper Title Number 5, with math \(E=mc^2\)
-</a>
-      
-    </h3>
-    
-    <p class="archive__item-excerpt" itemprop="description">Your Name, You. (2024). &quot;Paper Title Number 3.&quot; <i>GitHub Journal of Bugs</i>. 1(3).</p> 
-    </li>
- </article>
+<div class="resume-section">
+  <div class="skill-line"><strong>Languages:</strong> Golang · Python · C++</div>
+  <div class="skill-line"><strong>Backend:</strong> REST · GraphQL · gRPC · Microservices · API Design</div>
+  <div class="skill-line"><strong>Databases &amp; Cache:</strong> MongoDB · PostgreSQL · Redis · Elasticsearch</div>
+  <div class="skill-line"><strong>Tools:</strong> Git · GitHub · GitLab · Postman · Grafana</div>
+  <div class="skill-line"><strong>Other:</strong> React · FastAPI · System Design · Performance Optimization</div>
 </div>
 
-  
-    
+<h1 id="achievements">Achievements</h1>
 
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    <li>
-    
-    <h3 class="archive__item-title" itemprop="headline">
-      
-        <a href="https://TahshinSharon.github.io/publication/2024-02-17-paper-title-number-4" rel="permalink">Paper Title Number 4
-</a>
-      
-    </h3>
-    
-    <p class="archive__item-excerpt" itemprop="description">Your Name, You. (2024). &quot;Paper Title Number 3.&quot; <i>GitHub Journal of Bugs</i>. 1(3).</p> 
-    </li>
- </article>
-</div>
-
-  
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    <li>
-    
-    <h3 class="archive__item-title" itemprop="headline">
-      
-        <a href="https://TahshinSharon.github.io/publication/2015-10-01-paper-title-number-3" rel="permalink">Paper Title Number 3
-</a>
-      
-    </h3>
-    
-    <p class="archive__item-excerpt" itemprop="description">Your Name, You. (2015). &quot;Paper Title Number 3.&quot; <i>Journal 1</i>. 1(3).</p> 
-    </li>
- </article>
-</div>
-
-  
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    <li>
-    
-    <h3 class="archive__item-title" itemprop="headline">
-      
-        <a href="https://TahshinSharon.github.io/publication/2010-10-01-paper-title-number-2" rel="permalink">Paper Title Number 2
-</a>
-      
-    </h3>
-    
-    <p class="archive__item-excerpt" itemprop="description">Your Name, You. (2010). &quot;Paper Title Number 2.&quot; <i>Journal 1</i>. 1(2).</p> 
-    </li>
- </article>
-</div>
-
-  
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    <li>
-    
-    <h3 class="archive__item-title" itemprop="headline">
-      
-        <a href="https://TahshinSharon.github.io/publication/2009-10-01-paper-title-number-1" rel="permalink">Paper Title Number 1
-</a>
-      
-    </h3>
-    
-    <p class="archive__item-excerpt" itemprop="description">Your Name, You. (2009). &quot;Paper Title Number 1.&quot; <i>Journal 1</i>. 1(1).</p> 
-    </li>
- </article>
-</div>
-
+<div class="resume-section">
+  <h3>Competitive Programming</h3>
+  <ul>
+    <li><strong>1000+</strong> problems solved across multiple online judges.</li>
+    <li>Active on Codeforces, LeetCode, and StopStalk.</li>
   </ul>
-
-<h1 id="talks">Talks</h1>
-<ul>
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    <li>
-    
-    <h3 class="archive__item-title" itemprop="headline">
-      
-        <a href="https://TahshinSharon.github.io/talks/2014-03-01-talk-3" rel="permalink">Conference Proceeding talk 3 on Relevant Topic in Your Field
-</a>
-      
-    </h3>
-    <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> March 01, 2014</p>
-    <p class="archive__item-excerpt" itemprop="description">Conference proceedings talk at Testing Institute of America 2014 Annual Conference,  Los Angeles, CA, USA</p>
-    </li>
-  </article>
 </div>
 
-
-  
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    <li>
-    
-    <h3 class="archive__item-title" itemprop="headline">
-      
-        <a href="https://TahshinSharon.github.io/talks/2014-02-01-talk-2" rel="permalink">Talk 2 on Relevant Topic in Your Field
-</a>
-      
-    </h3>
-    <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> February 01, 2014</p>
-    <p class="archive__item-excerpt" itemprop="description">Talk at London School of Testing,  London, UK</p>
-    </li>
-  </article>
-</div>
-
-
-  
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    <li>
-    
-    <h3 class="archive__item-title" itemprop="headline">
-      
-        <a href="https://TahshinSharon.github.io/talks/2013-03-01-tutorial-1" rel="permalink">Tutorial 1 on Relevant Topic in Your Field
-</a>
-      
-    </h3>
-    <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> March 01, 2013</p>
-    <p class="archive__item-excerpt" itemprop="description">Tutorial at UC-Berkeley Institute for Testing Science,  Berkeley, CA, USA</p>
-    </li>
-  </article>
-</div>
-
-
-  
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    <li>
-    
-    <h3 class="archive__item-title" itemprop="headline">
-      
-        <a href="https://TahshinSharon.github.io/talks/2012-03-01-talk-1" rel="permalink">Talk 1 on Relevant Topic in Your Field
-</a>
-      
-    </h3>
-    <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> March 01, 2012</p>
-    <p class="archive__item-excerpt" itemprop="description">Talk at UC San Francisco, Department of Testing,  San Francisco, CA, USA</p>
-    </li>
-  </article>
-</div>
-
-
+<div class="resume-section">
+  <h3>Programming Contests</h3>
+  <ul>
+    <li><strong>IEEEXtreme 17.0</strong> — 6th in Bangladesh, global 1162 / 7091 (Team ARSfire).</li>
+    <li><strong>ICPC Regional 2023</strong> — Participant (Team JnuLazyPenguin).</li>
+    <li><strong>JNU Intra-University Programming Contest 2023</strong> — 1st Runner-Up (2nd of 50).</li>
+    <li><strong>UITS IUPC 2023</strong> — 26th (Team JnuLazyPenguin).</li>
   </ul>
-
-<h1 id="teaching">Teaching</h1>
-<ul>
-    
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    <li>
-    
-    <h3 class="archive__item-title" itemprop="headline">
-      
-        <a href="https://TahshinSharon.github.io/teaching/2015-spring-teaching-1" rel="permalink">Teaching experience 2
-</a>
-      
-    </h3>
-    
-    <p class="archive__item-excerpt" itemprop="description"></p> 
-    </li>
- </article>
 </div>
 
-  
-    
+<h1 id="leadership">Leadership</h1>
 
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-    <li>
-    
-    <h3 class="archive__item-title" itemprop="headline">
-      
-        <a href="https://TahshinSharon.github.io/teaching/2014-spring-teaching-1" rel="permalink">Teaching experience 1
-</a>
-      
-    </h3>
-    
-    <p class="archive__item-excerpt" itemprop="description"></p> 
-    </li>
- </article>
-</div>
-
+<div class="resume-section">
+  <h3>Lead Organizer — JNU IUPC</h3>
+  <div class="meta">Jagannath University</div>
+  <ul>
+    <li>Led a university-level programming contest end-to-end.</li>
+    <li>Coordinated volunteers; liaised with faculty, alumni, and students.</li>
+    <li>Contributed as problem setter.</li>
   </ul>
+</div>
 
-<h1 id="service-and-leadership">Service and leadership</h1>
-<ul>
-  <li>Currently signed in to 43 different slack teams</li>
-</ul>
+<h1 id="education">Education</h1>
+
+<div class="resume-section">
+  <h3>Jagannath University</h3>
+  <div class="meta">Bachelor's Degree · Ongoing</div>
+</div>
+
+<div class="resume-section">
+  <h3>Research — Predicting Autism Spectrum Disorder Using ML</h3>
+  <div class="meta">February 2024 – August 2024</div>
+  <ul>
+    <li>Early autism detection in young children using machine learning.</li>
+    <li>Achieved <strong>97% accuracy</strong> — a 1% improvement over prior models.</li>
+  </ul>
+</div>
 
   </div>
 </div>
@@ -610,8 +442,6 @@
     <div class="page__footer">
       <footer>
         <!-- start custom footer snippets -->
-
-<a href="/sitemap/">Sitemap</a>
 
 <!-- Support for MatJax -->
 <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -638,16 +468,13 @@
       <li><a href="https://github.com/TahshinSharon"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
     
     
-    
-    <li><a href="https://TahshinSharon.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
-    
   </ul>
 </div>
 
 
 <div class="page__footer-copyright">
-  &copy; 2026 Tahshin Sharon, Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated 2026-04-23
+  &copy; 2026 Tahshin Sharon<br />
+  Site last updated 2026-05-15
 </div>
 
       </footer>

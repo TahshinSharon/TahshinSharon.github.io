@@ -1,25 +1,149 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://tahshinsharon.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tahshinsharon.github.io/" rel="alternate" type="text/html" /><updated>2026-04-23T18:32:51+00:00</updated><id>https://tahshinsharon.github.io/feed.xml</id><title type="html">Tahshin Sharon</title><subtitle>Tahshin Sharon&apos;s Personal portfolio</subtitle><author><name>Tahshin Sharon</name><email>tahshinsharon@gmail.com</email></author><entry><title type="html">Future Blog Post</title><link href="https://tahshinsharon.github.io/posts/2012/08/blog-post-4/" rel="alternate" type="text/html" title="Future Blog Post" /><published>2199-01-01T00:00:00+00:00</published><updated>2199-01-01T00:00:00+00:00</updated><id>https://tahshinsharon.github.io/posts/2012/08/future-post</id><content type="html" xml:base="https://tahshinsharon.github.io/posts/2012/08/blog-post-4/"><![CDATA[<p>This post will show up by default. To disable scheduling of future posts, edit <code class="language-plaintext highlighter-rouge">config.yml</code> and set <code class="language-plaintext highlighter-rouge">future: false</code>.</p>]]></content><author><name>Tahshin Sharon</name><email>tahshinsharon@gmail.com</email></author><category term="cool posts" /><category term="category1" /><category term="category2" /><summary type="html"><![CDATA[This post will show up by default. To disable scheduling of future posts, edit config.yml and set future: false.]]></summary></entry><entry><title type="html">Blog Post number 4</title><link href="https://tahshinsharon.github.io/posts/2012/08/blog-post-4/" rel="alternate" type="text/html" title="Blog Post number 4" /><published>2015-08-14T00:00:00+00:00</published><updated>2015-08-14T00:00:00+00:00</updated><id>https://tahshinsharon.github.io/posts/2012/08/blog-post-4</id><content type="html" xml:base="https://tahshinsharon.github.io/posts/2012/08/blog-post-4/"><![CDATA[<p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://tahshinsharon.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tahshinsharon.github.io/" rel="alternate" type="text/html" /><updated>2026-05-15T15:27:44+00:00</updated><id>https://tahshinsharon.github.io/feed.xml</id><title type="html">Tahshin Sharon</title><subtitle>Tahshin Sharon&apos;s Personal portfolio</subtitle><author><name>Tahshin Sharon</name><email>tahshinsharon@gmail.com</email></author><entry><title type="html">Why Arrays Are Faster Than Linked Lists (It Starts with the CPU Cache!)</title><link href="https://tahshinsharon.github.io/posts/2026/05/why-arrays-faster-than-linked-lists/" rel="alternate" type="text/html" title="Why Arrays Are Faster Than Linked Lists (It Starts with the CPU Cache!)" /><published>2026-05-09T00:00:00+00:00</published><updated>2026-05-09T00:00:00+00:00</updated><id>https://tahshinsharon.github.io/posts/2026/05/why-arrays-faster-than-linked-lists</id><content type="html" xml:base="https://tahshinsharon.github.io/posts/2026/05/why-arrays-faster-than-linked-lists/"><![CDATA[<p>Most of us learn the classic computer science rule:</p>
 
-<h1 id="headings-are-cool">Headings are cool</h1>
+<blockquote>
+  <p><strong>Array access → O(1)</strong>
+<strong>Linked list access → O(n)</strong></p>
+</blockquote>
 
-<h1 id="you-can-have-many-headings">You can have many headings</h1>
+<p>But in real-world systems, Big-O notation doesn’t tell the whole story.</p>
 
-<h2 id="arent-headings-cool">Aren’t headings cool?</h2>]]></content><author><name>Tahshin Sharon</name><email>tahshinsharon@gmail.com</email></author><category term="cool posts" /><category term="category1" /><category term="category2" /><summary type="html"><![CDATA[This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.]]></summary></entry><entry><title type="html">Blog Post number 3</title><link href="https://tahshinsharon.github.io/posts/2014/08/blog-post-3/" rel="alternate" type="text/html" title="Blog Post number 3" /><published>2014-08-14T00:00:00+00:00</published><updated>2014-08-14T00:00:00+00:00</updated><id>https://tahshinsharon.github.io/posts/2014/08/blog-post-3</id><content type="html" xml:base="https://tahshinsharon.github.io/posts/2014/08/blog-post-3/"><![CDATA[<p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
+<p>Performance is often dominated by something entirely different: <strong>the CPU cache.</strong> 🧠</p>
 
-<h1 id="headings-are-cool">Headings are cool</h1>
+<p>Here is why your algorithm’s speed is dictated by <strong>hardware</strong>, not just math. 👇</p>
 
-<h1 id="you-can-have-many-headings">You can have many headings</h1>
+<h2 id="1-the-bottleneck-ram-vs-cpu-cache">1. The Bottleneck: RAM vs. CPU Cache</h2>
 
-<h2 id="arent-headings-cool">Aren’t headings cool?</h2>]]></content><author><name>Tahshin Sharon</name><email>tahshinsharon@gmail.com</email></author><category term="cool posts" /><category term="category1" /><category term="category2" /><summary type="html"><![CDATA[This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.]]></summary></entry><entry><title type="html">Blog Post number 2</title><link href="https://tahshinsharon.github.io/posts/2013/08/blog-post-2/" rel="alternate" type="text/html" title="Blog Post number 2" /><published>2013-08-14T00:00:00+00:00</published><updated>2013-08-14T00:00:00+00:00</updated><id>https://tahshinsharon.github.io/posts/2013/08/blog-post-2</id><content type="html" xml:base="https://tahshinsharon.github.io/posts/2013/08/blog-post-2/"><![CDATA[<p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
+<p>Modern CPUs are blazingly quick, but RAM is relatively slow. To avoid sitting idle waiting for RAM to deliver data, the CPU uses built-in cache memory:</p>
 
-<h1 id="headings-are-cool">Headings are cool</h1>
+<ul>
+  <li><strong>L1 Cache</strong> → extremely fast, but very small</li>
+  <li><strong>L2 Cache</strong> → medium speed and size</li>
+  <li><strong>L3 Cache</strong> → larger, but slower</li>
+</ul>
 
-<h1 id="you-can-have-many-headings">You can have many headings</h1>
+<p><img src="/images/cpu-cache-hierarchy.png" alt="CPU cache hierarchy: L1, L2, L3 cache vs system RAM" /></p>
 
-<h2 id="arent-headings-cool">Aren’t headings cool?</h2>]]></content><author><name>Tahshin Sharon</name><email>tahshinsharon@gmail.com</email></author><category term="cool posts" /><category term="category1" /><category term="category2" /><summary type="html"><![CDATA[This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.]]></summary></entry><entry><title type="html">Blog Post number 1</title><link href="https://tahshinsharon.github.io/posts/2012/08/blog-post-1/" rel="alternate" type="text/html" title="Blog Post number 1" /><published>2012-08-14T00:00:00+00:00</published><updated>2012-08-14T00:00:00+00:00</updated><id>https://tahshinsharon.github.io/posts/2012/08/blog-post-1</id><content type="html" xml:base="https://tahshinsharon.github.io/posts/2012/08/blog-post-1/"><![CDATA[<p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
+<h3 id="the-key-idea">The Key Idea</h3>
 
-<h1 id="headings-are-cool">Headings are cool</h1>
+<p>The CPU doesn’t load memory byte-by-byte. It loads a <strong>“cache line”</strong> (usually a 64-byte block). If you ask for one value, the CPU grabs that value <strong>plus several neighboring values</strong> and pulls them all into the ultra-fast cache.</p>
 
-<h1 id="you-can-have-many-headings">You can have many headings</h1>
+<h2 id="2-the-array-advantage-spatial-locality">2. The Array Advantage: Spatial Locality</h2>
 
-<h2 id="arent-headings-cool">Aren’t headings cool?</h2>]]></content><author><name>Tahshin Sharon</name><email>tahshinsharon@gmail.com</email></author><category term="cool posts" /><category term="category1" /><category term="category2" /><summary type="html"><![CDATA[This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.]]></summary></entry></feed>
+<p>This is where arrays shine. Arrays are stored in <strong>continuous memory</strong>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Index:  0    1    2    3    4
+Array: [10] [20] [30] [40] [50]
+</code></pre></div></div>
+
+<p>When the CPU reads <code class="language-plaintext highlighter-rouge">array[0]</code>, it doesn’t just get <code class="language-plaintext highlighter-rouge">10</code>.
+It loads a whole cache line into L1: <code class="language-plaintext highlighter-rouge">[10][20][30][40]</code>.</p>
+
+<p>When your loop moves to <code class="language-plaintext highlighter-rouge">array[1]</code>, the CPU doesn’t have to talk to the slow RAM at all. <strong>The data is already in the cache!</strong> This results in an extremely fast traversal known as <strong>“spatial locality.”</strong></p>
+
+<h2 id="3-the-linked-list-problem-cache-misses">3. The Linked List Problem: Cache Misses</h2>
+
+<p>Linked list nodes are allocated dynamically, meaning they are stored <strong>randomly across your RAM</strong>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A → D → B → F → C
+</code></pre></div></div>
+
+<p>What happens when you traverse a linked list?</p>
+
+<ol>
+  <li>Access Node <strong>A</strong> → 🔴 Cache Miss (CPU fetches from slow RAM)</li>
+  <li>Go to Node <strong>D</strong> (stored far away) → 🔴 Cache Miss</li>
+  <li>Go to Node <strong>B</strong> (stored elsewhere) → 🔴 Cache Miss</li>
+</ol>
+
+<p>Because the nodes aren’t next to each other, the 64-byte cache line the CPU loaded is <strong>useless</strong>. The CPU has to constantly go back to the RAM for every single step.</p>
+
+<hr />
+
+<h2 id="the-takeaway">The Takeaway</h2>
+
+<p>Big-O tells you how an algorithm scales. <strong>Hardware tells you how fast it actually runs.</strong></p>
+
+<p>For most real-world workloads — especially tight loops over collections — arrays (or array-backed structures like <code class="language-plaintext highlighter-rouge">std::vector</code>, <code class="language-plaintext highlighter-rouge">slice</code> in Go, <code class="language-plaintext highlighter-rouge">ArrayList</code> in Java) will outperform linked lists, even when textbook complexity says otherwise.</p>
+
+<p>Always remember: your code runs on a machine, not on a chalkboard. ⚡</p>]]></content><author><name>Tahshin Sharon</name><email>tahshinsharon@gmail.com</email></author><category term="data-structures" /><category term="performance" /><category term="cpu-cache" /><category term="algorithms" /><category term="arrays" /><category term="linked-lists" /><summary type="html"><![CDATA[Big-O says array access is O(1) and linked-list access is O(n). But the real-world speed difference comes from somewhere else entirely — the CPU cache.]]></summary></entry><entry><title type="html">The $10,000 Typo: Why You Should Automate Your Local Workflow</title><link href="https://tahshinsharon.github.io/posts/2026/05/the-10000-dollar-typo/" rel="alternate" type="text/html" title="The $10,000 Typo: Why You Should Automate Your Local Workflow" /><published>2026-05-02T00:00:00+00:00</published><updated>2026-05-02T00:00:00+00:00</updated><id>https://tahshinsharon.github.io/posts/2026/05/the-10000-dollar-typo</id><content type="html" xml:base="https://tahshinsharon.github.io/posts/2026/05/the-10000-dollar-typo/"><![CDATA[<h2 id="-imagine-this">🚨 Imagine this…</h2>
+
+<p>It’s <strong>4:55 PM on a Friday</strong>.</p>
+
+<p>You’ve been debugging a stubborn API integration all day. Finally, it works!</p>
+
+<p>You quickly run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"fixed integration"</span>
+git push
+</code></pre></div></div>
+
+<p>You shut your laptop and head into the weekend 😌</p>
+
+<h2 id="-one-day-later">⏳ One day later…</h2>
+
+<p>Your phone starts blowing up.</p>
+
+<p>In your rush, you accidentally:</p>
+
+<ul>
+  <li>Hardcoded a <strong>production AWS Access Key</strong></li>
+  <li>Pushed it to a repository</li>
+</ul>
+
+<p>Bots are already scanning GitHub in seconds.
+By the time you notice, attackers may have already spun up resources costing real money.</p>
+
+<p>Even in <strong>private repositories</strong>, secrets should never be hardcoded or pushed into Git. Multiple developers still access the same codebase.</p>
+
+<blockquote>
+  <p><strong>Code should never contain secrets — only reference them securely.</strong></p>
+</blockquote>
+
+<p>💥 Human error is inevitable. And relying on memory alone is risky.</p>
+
+<h2 id="-so-how-do-we-stop-the-friday-evening-disaster">🧠 So how do we stop the “Friday evening disaster”?</h2>
+
+<p>👉 We use a <strong>pre-commit hook</strong>.</p>
+
+<h2 id="-solving-the-problem-using-automation">✅ Solving the Problem Using Automation</h2>
+
+<p>By setting up a pre-commit hook, we tell Git:</p>
+
+<blockquote>
+  <p><em>“Before you allow this commit to be created, run a script to scan the staged files. If the script finds an API key, reject the commit and throw an error.”</em></p>
+</blockquote>
+
+<p>This shifts security to the very beginning of the process. The insecure code <strong>never leaves your local machine</strong>. It catches the mistake before the pipeline fails, before the code is reviewed, and before a leak occurs.</p>
+
+<h2 id="-what-are-git-hooks">🪝 What Are Git Hooks?</h2>
+
+<p>Git hooks are a built-in feature of Git that serve as the ultimate defense mechanism against human error.</p>
+
+<p>Simply put, they are <strong>custom scripts that automatically run whenever a specific Git event occurs</strong> — such as before you commit (<code class="language-plaintext highlighter-rouge">pre-commit</code>), before you push (<code class="language-plaintext highlighter-rouge">pre-push</code>), or after you merge.</p>
+
+<p>Every Git repository already has them! If you look inside the hidden <code class="language-plaintext highlighter-rouge">.git/hooks</code> folder, you’ll find sample scripts waiting to be activated.</p>
+
+<h2 id="-the-secret-scanner">💻 The Secret Scanner</h2>
+
+<p>Here is how simple it is to protect yourself. Create a custom script inside your <code class="language-plaintext highlighter-rouge">.git/hooks/pre-commit</code> file:</p>
+
+<h3 id="-git-hook-pre-commit-protection">🧠 Git Hook: Pre-commit Protection</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="c"># Check staged files for sensitive keywords</span>
+<span class="k">if </span>git diff <span class="nt">--cached</span> | <span class="nb">grep</span> <span class="nt">-qE</span> <span class="s2">"API_KEY|console</span><span class="se">\.</span><span class="s2">log"</span><span class="p">;</span> <span class="k">then
+  </span><span class="nb">echo</span> <span class="s2">"🚨 ERROR: Commit rejected!"</span>
+  <span class="nb">echo</span> <span class="s2">"You left an API_KEY or console.log in your code."</span>
+
+  <span class="nb">exit </span>1
+<span class="k">fi
+
+</span><span class="nb">exit </span>0
+</code></pre></div></div>
+
+<p>Now, Git will forcefully <strong>stop any commit containing sensitive data</strong>, saving you from a massive headache.</p>
+
+<hr />
+
+<p>That’s only an example; there are many more use cases of Git hooks. Try to figure it out and apply it in your work.</p>]]></content><author><name>Tahshin Sharon</name><email>tahshinsharon@gmail.com</email></author><category term="git" /><category term="git-hooks" /><category term="automation" /><category term="security" /><category term="devops" /><category term="pre-commit" /><summary type="html"><![CDATA[A single careless commit on a Friday evening can cost thousands. Here is how a tiny pre-commit hook can save you from the disaster.]]></summary></entry></feed>

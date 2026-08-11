@@ -1,0 +1,192 @@
+2:I[2972,["881","static/chunks/881-134e55787e4f590c.js","972","static/chunks/972-8c0ee6fabcd1342f.js","308","static/chunks/app/blog/%5Bslug%5D/page-825baff72c6f19d5.js"],""]
+3:I[2228,["881","static/chunks/881-134e55787e4f590c.js","972","static/chunks/972-8c0ee6fabcd1342f.js","308","static/chunks/app/blog/%5Bslug%5D/page-825baff72c6f19d5.js"],"default"]
+9:I[6333,["881","static/chunks/881-134e55787e4f590c.js","972","static/chunks/972-8c0ee6fabcd1342f.js","308","static/chunks/app/blog/%5Bslug%5D/page-825baff72c6f19d5.js"],"default"]
+10:I[4707,[],""]
+12:I[6423,[],""]
+13:I[2060,["972","static/chunks/972-8c0ee6fabcd1342f.js","586","static/chunks/586-4b843bfead838d9e.js","185","static/chunks/app/layout-0e767715eb7766e2.js"],"ThemeProvider"]
+14:I[3445,["972","static/chunks/972-8c0ee6fabcd1342f.js","586","static/chunks/586-4b843bfead838d9e.js","185","static/chunks/app/layout-0e767715eb7766e2.js"],"default"]
+15:I[2834,["972","static/chunks/972-8c0ee6fabcd1342f.js","586","static/chunks/586-4b843bfead838d9e.js","185","static/chunks/app/layout-0e767715eb7766e2.js"],"default"]
+6:{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z","key":"vktsd0"}
+5:["path","$6"]
+8:{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor","key":"kqv944"}
+7:["circle","$8"]
+4:["$5","$7"]
+a:T1695,## The Friday Evening That Costs $10,000
+
+It's 6:47 PM on a Friday. You've been debugging a gnarly AWS SDK integration all week and you *finally* got it working. Tests pass. The feature is done. You commit, push, open a PR — and head out for the weekend feeling great.
+
+By Saturday morning, your AWS bill shows **$9,847** in unexpected charges.
+
+What happened? In the heat of the moment, you left your AWS access keys hardcoded in a config file:
+
+```python
+# config.py  ← committed to a public repo
+AWS_ACCESS_KEY_ID = "AKIAIOSFODNN7EXAMPLE"
+AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+```
+
+Within minutes of your push, bots that continuously scan GitHub for leaked credentials found your keys. They spun up hundreds of EC2 instances for crypto mining. By the time you checked your phone Saturday morning, the damage was done.
+
+This isn't a hypothetical. It happens **every single day** to developers at all experience levels.
+
+---
+
+## The Problem: Our Brains Are Not Good Linters
+
+We're good at solving complex architectural problems. We're not good at catching the small, repetitive, easy-to-miss mistakes like:
+
+- Hardcoded API keys and credentials
+- `console.log` or `fmt.Println` debug statements left in production code
+- TODO comments that were never resolved
+- Accidentally staging `.env` files
+
+The solution isn't to "be more careful." Humans are fallible. **Automation is not.**
+
+---
+
+## Enter: Git Pre-Commit Hooks
+
+Git hooks are scripts that run automatically at certain points in the git workflow. The `pre-commit` hook runs *before* a commit is recorded — giving you the perfect checkpoint to catch problems.
+
+Here's a simple but powerful pre-commit hook that scans for common secrets:
+
+```bash
+#!/bin/bash
+# .git/hooks/pre-commit
+# Make it executable: chmod +x .git/hooks/pre-commit
+
+echo "Running pre-commit security checks..."
+
+# --- 1. Detect hardcoded AWS keys ---
+PATTERNS=(
+  "AKIA[0-9A-Z]{16}"                          # AWS Access Key ID
+  "aws_secret_access_key\s*=\s*['\"A-Za-z0-9/+]+"  # AWS Secret
+  "-----BEGIN (RSA|EC|DSA|OPENSSH) PRIVATE KEY-----"    # Private keys
+  "ghp_[a-zA-Z0-9]{36}"                         # GitHub Personal Token
+  "sk-[a-zA-Z0-9]{48}"                           # OpenAI API Key
+)
+
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+
+for FILE in $STAGED_FILES; do
+  for PATTERN in "${PATTERNS[@]}"; do
+    if grep -qE "$PATTERN" "$FILE" 2>/dev/null; then
+      echo ""
+      echo "  BLOCKED: Potential secret detected in $FILE"
+      echo "  Pattern matched: $PATTERN"
+      echo ""
+      echo "  Remove the secret and use environment variables instead."
+      echo "  Commit aborted."
+      exit 1
+    fi
+  done
+done
+
+# --- 2. Warn about debug statements ---
+DEBUG_PATTERNS=("console\.log(" "fmt\.Println(" "print(" "debugger;")
+WARNING=0
+
+for FILE in $STAGED_FILES; do
+  for PATTERN in "${DEBUG_PATTERNS[@]}"; do
+    COUNT=$(grep -cE "$PATTERN" "$FILE" 2>/dev/null || echo 0)
+    if [ "$COUNT" -gt 0 ]; then
+      echo "  WARNING: $COUNT debug statement(s) found in $FILE ($PATTERN)"
+      WARNING=1
+    fi
+  done
+done
+
+if [ "$WARNING" -eq 1 ]; then
+  echo ""
+  read -p "  Debug statements found. Commit anyway? [y/N] " REPLY
+  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    exit 1
+  fi
+fi
+
+echo "Pre-commit checks passed."
+exit 0
+```
+
+---
+
+## Installing the Hook
+
+The `.git/hooks/` directory is local-only and not committed. For team-wide enforcement, use a tool like **pre-commit** (Python) or **Husky** (Node.js) which stores hooks in your repository:
+
+### Option A: pre-commit (language-agnostic)
+
+```yaml
+# .pre-commit-config.yaml
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: detect-aws-credentials
+      - id: detect-private-key
+      - id: check-added-large-files
+        args: ['--maxkb=500']
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+```
+
+Install and activate:
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+### Option B: Husky (Node.js projects)
+
+```bash
+npm install --save-dev husky lint-staged
+npx husky install
+npx husky add .husky/pre-commit "npx lint-staged"
+```
+
+---
+
+## The Bigger Picture: Defense in Depth
+
+Pre-commit hooks are your *first* line of defense. Layer them with:
+
+| Layer | Tool | What it catches |
+|-------|------|----------------|
+| Local (pre-commit) | Husky / pre-commit | Secrets, lint errors, debug code |
+| CI Pipeline | GitHub Actions + gitleaks | Anything that slipped through locally |
+| Repository Scanning | GitHub Secret Scanning | Committed secrets (retroactive) |
+| Cloud Provider | AWS Trusted Advisor | Exposed key activity alerts |
+
+---
+
+## What to Do If You've Already Leaked a Key
+
+1. **Revoke immediately** — Go to AWS IAM / GitHub Settings and delete the key. Do not rotate — *delete*.
+2. **Assume compromise** — Audit CloudTrail logs for unauthorized activity.
+3. **Purge git history** — Use `git filter-repo` or BFG Repo Cleaner. A commit history wipe is not sufficient if the repo is public — GitHub caches blobs.
+4. **Notify your security team** — Even if you caught it fast.
+
+---
+
+## A 5-Minute Setup That Saves Thousands
+
+The total time to add a pre-commit hook to your project is under five minutes. The first time it blocks a secret from being committed, it will have paid for itself thousands of times over.
+
+Your future self — and your finance team — will thank you.
+
+Stop relying on memory. Automate the boring, critical stuff. Let your brain focus on the problems only you can solve.
+
+---
+
+*Have a close call of your own? Share it in the comments — the more developers hear these stories, the safer our collective codebases become.*d:{"d":"m12 19-7-7 7-7","key":"1l729n"}
+c:["path","$d"]
+f:{"d":"M19 12H5","key":"x3x0zl"}
+e:["path","$f"]
+b:["$c","$e"]
+11:["slug","the-10000-dollar-typo-why-you-should-automate-your-local-workflow","d"]
+0:["vmcQyOzTKD4TdygB-XJ1E",[[["",{"children":["blog",{"children":[["slug","the-10000-dollar-typo-why-you-should-automate-your-local-workflow","d"],{"children":["__PAGE__?{\"slug\":\"the-10000-dollar-typo-why-you-should-automate-your-local-workflow\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["slug","the-10000-dollar-typo-why-you-should-automate-your-local-workflow","d"],{"children":["__PAGE__",{},[["$L1",["$","div",null,{"className":"min-h-screen pt-28 pb-20","children":["$","div",null,{"className":"max-w-3xl mx-auto px-4 sm:px-6","children":[["$","$L2",null,{"href":"/blog","className":"inline-flex items-center gap-2 text-sm mb-8 transition-colors dark:text-gray-400 text-gray-600 hover:text-red-600","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left","size":14}],"Back to Blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-4 mb-4 text-xs dark:text-gray-500 text-gray-500","children":[["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M8 2v3","key":"1ioesn"}],["path",{"d":"M16 2v3","key":"otl347"}],["rect",{"x":"3","y":"3","width":"18","height":"18","rx":"2","key":"h1oib"}],["path",{"d":"M3 9h18","key":"1pudct"}]],"className":"lucide-calendar","size":12,"style":{"color":"#A32E32"}}],"May 2, 2026"]}],["$","span",null,{"className":"flex items-center gap-1.5","children":[["$","$L3",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M12 6v6l4 2","key":"mmk7yg"}]],"className":"lucide-clock","size":12,"style":{"color":"#A32E32"}}],"8 min read"]}]]}],["$","h1",null,{"className":"font-heading font-bold text-3xl sm:text-4xl mb-6 dark:text-white text-gray-900 leading-tight","children":"The $10,000 Typo: Why You Should Automate Your Local Workflow"}],["$","p",null,{"className":"text-base dark:text-gray-300 text-gray-700 leading-relaxed mb-6","children":"A Friday evening commit with hardcoded AWS credentials can cost thousands. Here's how pre-commit hooks can save you — and your company — from that nightmare."}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","span","git",{"className":"flex items-center gap-1 text-xs px-2.5 py-1 rounded-full","style":{"background":"rgba(163,46,50,0.1)","color":"#c43d42","border":"1px solid rgba(163,46,50,0.2)"},"children":[["$","$L3",null,{"iconNode":[["path",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z","key":"vktsd0"}],["circle",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor","key":"kqv944"}]],"className":"lucide-tag","size":9}],"git"]}],["$","span","git-hooks",{"className":"flex items-center gap-1 text-xs px-2.5 py-1 rounded-full","style":{"background":"rgba(163,46,50,0.1)","color":"#c43d42","border":"1px solid rgba(163,46,50,0.2)"},"children":[["$","$L3",null,{"iconNode":"$4","className":"lucide-tag","size":9}],"git-hooks"]}],["$","span","automation",{"className":"flex items-center gap-1 text-xs px-2.5 py-1 rounded-full","style":{"background":"rgba(163,46,50,0.1)","color":"#c43d42","border":"1px solid rgba(163,46,50,0.2)"},"children":[["$","$L3",null,{"iconNode":"$4","className":"lucide-tag","size":9}],"automation"]}],["$","span","security",{"className":"flex items-center gap-1 text-xs px-2.5 py-1 rounded-full","style":{"background":"rgba(163,46,50,0.1)","color":"#c43d42","border":"1px solid rgba(163,46,50,0.2)"},"children":[["$","$L3",null,{"iconNode":"$4","className":"lucide-tag","size":9}],"security"]}],["$","span","devops",{"className":"flex items-center gap-1 text-xs px-2.5 py-1 rounded-full","style":{"background":"rgba(163,46,50,0.1)","color":"#c43d42","border":"1px solid rgba(163,46,50,0.2)"},"children":[["$","$L3",null,{"iconNode":"$4","className":"lucide-tag","size":9}],"devops"]}],["$","span","pre-commit",{"className":"flex items-center gap-1 text-xs px-2.5 py-1 rounded-full","style":{"background":"rgba(163,46,50,0.1)","color":"#c43d42","border":"1px solid rgba(163,46,50,0.2)"},"children":[["$","$L3",null,{"iconNode":"$4","className":"lucide-tag","size":9}],"pre-commit"]}]]}],["$","div",null,{"className":"mt-8 h-px","style":{"background":"linear-gradient(90deg, #A32E32, transparent)"}}]]}],["$","$L9",null,{"content":"$a"}],["$","div",null,{"className":"mt-16 pt-8 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4","style":{"borderColor":"var(--card-border)"},"children":[["$","$L2",null,{"href":"/blog","className":"flex items-center gap-2 text-sm font-medium transition-colors","style":{"color":"#A32E32"},"children":[["$","$L3",null,{"iconNode":"$b","className":"lucide-arrow-left","size":14}],"All posts"]}],["$","p",null,{"className":"text-sm dark:text-gray-500 text-gray-400","children":["Written by"," ",["$","span",null,{"className":"dark:text-white text-gray-900 font-medium","children":"Md. Abu Tahshin"}]]}]]}]]}]}],null],null],null]},[null,["$","$L10",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$11","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined"}]],null]},[null,["$","$L10",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined"}]],null]},[[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/c74d0e7017cc3b5d.css","precedence":"next","crossOrigin":"$undefined"}]],["$","html",null,{"lang":"en","className":"dark","suppressHydrationWarning":true,"children":["$","body",null,{"className":"__variable_f367f3 __variable_dd5b2f __variable_13fb82 antialiased min-h-screen","style":{"backgroundColor":"var(--background)","color":"var(--foreground)"},"children":["$","$L13",null,{"children":[["$","$L14",null,{}],["$","main",null,{"children":["$","$L10",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[]}]}],["$","$L15",null,{}]]}]}]}]],null],null],["$L16",null]]]]
+16:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"The $10,000 Typo: Why You Should Automate Your Local Workflow — Tahshin Sharon"}],["$","meta","3",{"name":"description","content":"A Friday evening commit with hardcoded AWS credentials can cost thousands. Here's how pre-commit hooks can save you — and your company — from that nightmare."}],["$","meta","4",{"name":"author","content":"Md. Abu Tahshin"}],["$","meta","5",{"name":"keywords","content":"Backend Engineer,Golang Developer,DevOps,Distributed Systems,Competitive Programmer,Dhaka Bangladesh"}],["$","meta","6",{"property":"og:title","content":"Md. Abu Tahshin — Backend Engineer & Golang Developer"}],["$","meta","7",{"property":"og:description","content":"Backend Engineer building scalable distributed systems and high-performance APIs that power large-scale educational platforms."}],["$","meta","8",{"property":"og:locale","content":"en_US"}],["$","meta","9",{"property":"og:type","content":"website"}],["$","meta","10",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","11",{"name":"twitter:title","content":"Md. Abu Tahshin — Backend Engineer"}],["$","meta","12",{"name":"twitter:description","content":"Backend Engineer · Golang Developer · DevOps · Competitive Programmer"}],["$","link","13",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}],["$","meta","14",{"name":"next-size-adjust"}]]
+1:null
